@@ -10,4 +10,5 @@ import scrapy
 
 class News(scrapy.Item):
     title = scrapy.Field()
-    content= scrapy.Field()
+    content = scrapy.Field()
+    url = scrapy.Field()

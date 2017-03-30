@@ -16,7 +16,8 @@ NEWSPIDER_MODULE = 'news_spider.spiders'
 
 DEFAULT_ITEM_CLASS = 'news_spider.items.News'
 
-ITEM_PIPELINES = {'news_spider.pipelines.Save2FilePipeline': 1}
+# ITEM_PIPELINES = {'news_spider.pipelines.Save2FilePipeline': 1}
+ITEM_PIPELINES = {'news_spider.pipelines.Save2FilePipeline2': 1}
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

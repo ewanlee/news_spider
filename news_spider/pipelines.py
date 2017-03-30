@@ -11,3 +11,10 @@ class Save2FilePipeline(object):
         file_path = './news/' + item['title']
         with io.open(file_path, 'w') as f:
             f.write(item['content'])
+
+
+class Save2FilePipeline2(object):
+    def process_item(self, item, spider):
+        file_path = './news_20/' + item['title']
+        with io.open(file_path, 'w') as f:
+            f.write(item['url'] + '\n\n' + item['content'])

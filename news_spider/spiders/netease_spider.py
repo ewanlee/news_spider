@@ -6,7 +6,8 @@ from news_spider.items import News
 class NeteaseSpiderSpider(scrapy.Spider):
     name = "netease_spider"
     PAGE_SIZE = 25
-    start_urls = ['http://3g.163.com/touch/article/list/BBM54PGAwangning/0-5000.html']
+    # start_urls = ['http://3g.163.com/touch/article/list/BBM54PGAwangning/0-5000.html']
+    start_urls = ['http://3g.163.com/touch/article/list/BBM54PGAwangning/0-20.html']
     header = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36\
      (KHTML, like Gecko) Ubuntu Chromium/56.0.2924.76 Chrome/56.0.2924.76 Safari/537.36"}
     news_count = 0
@@ -29,6 +30,7 @@ class NeteaseSpiderSpider(scrapy.Spider):
 
     def parse_news(self, response):
         item = News()
+        item['url'] = response.url
         item['title'] = response.xpath('/html/body/h1/text()').extract()[0]
         content = ''
         ps = response.xpath('//body/div[@class="content"]/p')
